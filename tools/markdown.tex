@@ -1,0 +1,113 @@
+% Pandoc compatibility entry point for the ACE format specification.
+%
+% These definitions preserve the meaning of ACEFormat.cls while expressing the
+% document with constructs understood by Pandoc's LaTeX reader.
+
+\newcommand{\MT}{\texttt{MT}}
+\newcommand{\MF}{\texttt{MF}}
+
+\newcommand{\var}[1]{\texttt{#1}}
+\newcommand{\aceArray}[1]{\texttt{#1}}
+\newcommand{\IZAW}{\aceArray{IZAW}}
+\newcommand{\NXS}{\aceArray{NXS}}
+\newcommand{\nxs}[1]{\texttt{NXS(#1)}}
+\newcommand{\JXS}{\aceArray{JXS}}
+\newcommand{\jxs}[1]{\texttt{JXS(#1)}}
+\newcommand{\XSS}{\aceArray{XSS}}
+\newcommand{\xss}[1]{\texttt{XSS(#1)}}
+
+\newcommand{\Block}[1]{\hyperref[sec:#1Block]{\texttt{#1} Block}}
+\newcommand{\startblock}[1]{\ensuremath{S_{\mathrm{#1}}}}
+\newcommand{\law}[1]{\texttt{law=#1}}
+
+\newcommand{\LAB}{lab}
+\newcommand{\CM}{center-of-mass}
+\newcommand{\PDF}{\ensuremath{\mathrm{PDF}}}
+\newcommand{\CDF}{\ensuremath{\mathrm{CDF}}}
+
+\newcommand{\ACE}{ACE}
+\newcommand{\SaB}{\ensuremath{S(\alpha, \beta)}}
+\newcommand{\ZA}{\texttt{ZA}}
+\newcommand{\ZAID}{\texttt{ZAID}}
+\newcommand{\SZAID}{\texttt{SZAID}}
+\newcommand{\Type}[1]{Type #1}
+\newcommand{\nubar}{\ensuremath{\bar{\nu}}}
+
+\newcommand{\Sectionref}[1]{Section~\ref{#1}}
+\newcommand{\Figureref}[1]{Figure~\ref{#1}}
+\newcommand{\Tableref}[1]{Table~\ref{#1}}
+\newcommand{\Equationref}[1]{Equation~\ref{#1}}
+
+\newcommand{\mintinline}[2]{\texttt{#2}}
+\newcommand{\num}[1]{#1}
+\newcommand{\si}[1]{#1}
+\newcommand{\MeV}{MeV}
+\newcommand{\nth}[1]{#1}
+\newcommand{\multirow}[3]{#3}
+\newcommand{\tnotex}[1]{\textsuperscript{\hyperref[#1]{note}}}
+\newcommand{\note}{\item[]}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}}
+
+\newenvironment{ThreePartTable}{}{}
+\newenvironment{TableNotes}{\begin{description}}{\end{description}}
+\newenvironment{tablenotes}{\begin{description}}{\end{description}}
+
+\newenvironment{NXSTable}[1]{%
+  \begin{longtable}{rll}
+  \caption{\NXS\ array element definitions for #1 \ACE\ Table.}\\
+  \toprule
+  Element & Name & Description\\
+  \midrule
+}{\end{longtable}}
+
+\newenvironment{JXSTable}[1]{%
+  \begin{longtable}{rll}
+  \caption{\JXS\ array element definitions for #1 \ACE\ Table.}\\
+  \toprule
+  Element & Name & Location Description\\
+  \midrule
+}{\end{longtable}}
+
+\newenvironment{BlockTable}[2][]{%
+  \begin{longtable}{lll}
+  \caption{\texttt{#2} Block#1.}\\
+  \toprule
+  Location in \XSS & Parameter & Description\\
+  \midrule
+}{\end{longtable}}
+
+\newenvironment{XSSTable}[1]{%
+  \begin{longtable}{lll}
+  \caption{#1.}\\
+  \toprule
+  Location in \XSS & Parameter & Description\\
+  \midrule
+}{\end{longtable}}
+
+\newenvironment{LAWTable}[1]{%
+  \begin{longtable}{lll}
+  \caption{#1.}\\
+  \toprule
+  Location & Parameter & Description\\
+  \midrule
+}{\end{longtable}}
+
+\newenvironment{LOCTable}[1]{%
+  \begin{longtable}{ll}
+  \caption{#1.}\\
+  \toprule
+  Location in \XSS & Description\\
+  \midrule
+}{\end{longtable}}
+
+\section*{A Compact ENDF (ACE) Format Specification}
+\input{../src/frontmatter}
+\input{../src/mainmatter}
+\input{../src/Introduction}
+\input{../src/Header}
+\input{../src/UniqueIdentifier}
+\input{../src/ContinuousEnergyNeutron}
+\input{../src/Dosimetry}
+\input{../src/ThermalScattering}
+\input{../src/ContinuousEnergyPhoton}
+\input{../src/backmatter}

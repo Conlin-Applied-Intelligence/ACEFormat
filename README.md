@@ -7,6 +7,19 @@ The document itself is [ACEFormat.pdf](ACEFormat.pdf) and can be downloaded/view
 
 Please note: **this document is not complete at this time.**
 
+## Markdown
+
+The Markdown version is generated from the LaTeX sources:
+
+```sh
+python3 tools/convert_to_markdown.py
+```
+
+The converter requires Pandoc and writes `ACEFormat.md`. Its compatibility
+entry point expands the custom ACE table environments into standard LaTeX
+tables before Pandoc converts them; `ACEFormat.md` should therefore not be
+edited by hand.
+
 ## Issues
 If you discover problems with the specification, please [file an issue](https://github.com/NuclearData/ACEFormat/issues) on GitHub. This will allow those involved to investigate and keep a record of what has been done. Note that we are not modifying or extending the format at this time; we are only looking for bugs in the format specification.
 
